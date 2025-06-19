@@ -1,47 +1,43 @@
 <script setup>
 import {ref} from 'vue'
-import Person from './components/Person.vue'
+import HomePage from './components/HomePage.vue'
+import SubmitPersonPage from './components/SubmitPersonPage.vue'
+const content = HomePage
 
-const people = ref([
-  {firstName: 'Jon', lastName: 'Nielsen', age: 18, gender: 'Male',  height: 200, weight: 110},
-  {firstName: 'Jon', lastName: 'Nielsen', age: 18, gender: 'Male',  height: 200, weight: 110},
-  {firstName: 'Jon', lastName: 'Nielsen', age: 18, gender: 'Male',  height: 200, weight: 110},
-  {firstName: 'Jon', lastName: 'Nielsen', age: 18, gender: 'Male',  height: 200, weight: 110},
-  {firstName: 'Jon', lastName: 'Nielsen', age: 18, gender: 'Male',  height: 200, weight: 110},
-  {firstName: 'Jon', lastName: 'Nielsen', age: 18, gender: 'Male',  height: 200, weight: 110},
-])
 
+
+const currentPage = ref(HomePage)
 </script>
 
 <template>
-  <div id="peopleContainer">
-    <div v-for="person in people" class="personContainer">
-      <Person 
-          :firstName="person.firstName"
-          :lastName="person.lastName"
-          :age="person.age"
-          :gender="person.gender"
-          :height="person.height"
-          :weight="person.weight">
-      </Person>
-    </div>
-  
-  </div>
+  <nav>
+    <button @click="currentPage = HomePage">Database</button>
+    <button @click="currentPage = SubmitPersonPage">Submit</button>
+  </nav>
+
+  <component id="currentPageComponent" :is="currentPage"/>
+
 </template>
 
 <style scoped>
-  div#peopleContainer{
-    width: 100%;
-    height: 100%;
-    background-color: aqua;
-  }
-  div.personContainer{
-    display: inline-block;
-    margin-left: 7px;
-    margin-right: 7px;
-  }
-
   template{
     background-color: black;
+  }
+
+  nav{
+    background-color: rgb(71, 75, 75);
+    width: 100%;
+    height: 70px;
+  }
+
+  nav button{
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 42px;
+    height: 100%;
+    text-align: center;
+  }
+
+  #currentPageComponent{
   }
 </style>

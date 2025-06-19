@@ -26,6 +26,5 @@ div#personBox{
     border-top-right-radius: 5px;
     height: 60%;
     width: 100%;
-    background-color: blue;
 }
 </style>
