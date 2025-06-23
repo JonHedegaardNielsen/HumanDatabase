@@ -2,8 +2,6 @@
 import {ref} from 'vue'
 import HomePage from './components/HomePage.vue'
 import SubmitPersonPage from './components/SubmitPersonPage.vue'
-const content = HomePage
-
 
 
 const currentPage = ref(HomePage)
@@ -25,17 +23,25 @@ const currentPage = ref(HomePage)
   }
 
   nav{
-    background-color: rgb(71, 75, 75);
+    background-color: rgb(89, 89, 89);
     width: 100%;
     height: 70px;
+    padding: 5px;
   }
 
   nav button{
-    background-color: transparent;
-    border-color: transparent;
+    background-color: rgba(0, 0, 0, 0.071);
+    border-color: black;
     font-size: 42px;
     height: 100%;
+    margin: 0;
+    box-shadow: 5px;
+    margin-right: 15px;
     text-align: center;
+  }
+
+  nav button:hover{
+    background-color: rgba(0, 0, 0, 0.16);
   }
 
   #currentPageComponent{

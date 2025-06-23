@@ -33,6 +33,9 @@
                 </select>
             </div>
 
+            <button id="submitButton">
+                Submit
+            </button>
         </div>
     </div>
 </template>
@@ -43,8 +46,20 @@
     padding-bottom: 50px;
 }
 
+#submitButton{
+    margin-left: 30%;
+    margin-right: 50%;
+    width: 40%;
+    margin-bottom: 50px;
+    height: 50px;
+    background-color: black;
+    color: rgb(182, 182, 182);
+    font-size: 32px;
+}
+
 #submitionBox {
     padding: 50px;
+    padding-bottom: 10px;
     margin-left: 2%;
     margin-right: 2%;
     margin-top: 20px;
@@ -65,6 +80,8 @@
     border-width: 0;
     border-radius: 4px;
     padding: 4px;
+    width: 50%;
+    margin-bottom: 30px;
 }
 
 #submitionBox input:focus{
