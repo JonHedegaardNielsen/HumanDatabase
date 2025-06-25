@@ -2,5 +2,5 @@
 
 namespace PersonAPI.Models
 {
-	public record Person(string FirstName, string LastName, DateOnly DayOfBirth, Genders Gender, int Weight, int Height);
+	public record Person(int PersonId, string FirstName, string LastName, int Age , Genders Gender, int Height, int Weight, DateOnly DayOfBirth);
 }
