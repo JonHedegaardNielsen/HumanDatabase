@@ -1,10 +1,10 @@
 <script setup>
-import {ref} from 'vue'
+import {ref, markRaw, shallowRef} from 'vue'
 import HomePage from './components/HomePage.vue'
 import SubmitPersonPage from './components/SubmitPersonPage.vue'
 
 
-const currentPage = ref(HomePage)
+const currentPage = shallowRef(HomePage)
 </script>
 
 <template>

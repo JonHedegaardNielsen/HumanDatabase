@@ -1,22 +1,36 @@
 <script setup>
+import {ref, defineModel} from 'vue'
 const APIURL = "https://localhost:7137/Person"
 
 const submit = async() =>
 {
+    const person = {
+            "firstName" : firstName.value,
+            "lastName" : lastName.value,
+            "dayOfBirth" : dayOfBirth.value,
+            "weigth" : weigth.value,
+            "heigth" : heigth.value,
+            "gender" : gender.value
+    }
+
+    console.log(person)
+
     await fetch(APIURL, {
         method : "POST",
-        body : {
-            
-        }
+        headers: {
+            'Accept': 'application/json',
+            "Content-Type": "application/json"
+        },
+        body : JSON.stringify(person)
     })
 }
 
-const firstName = ref("")
-const lastName = ref("")
-const dayOfBirth = ref("")
-const weigth = ref(0)
-const heigth = ref(0)
-const gender = ref()
+const firstName = defineModel('firstName')
+const lastName = defineModel('lastName')
+const dayOfBirth = defineModel('dayOfBirth')
+const weigth = defineModel('weigth')
+const heigth = defineModel('heigth')
+const gender = defineModel('gender')
 </script>
 
 <template>
@@ -24,26 +38,26 @@ const gender = ref()
         <div id="submitionBox">
             <div class="submitionSection">
                 <span>First Name</span> <br>
-                <input placeholder="First Name" /> <br>
+                <input placeholder="First Name" v-model="firstName"/> <br>
                 <span>Last Name</span> <br>
-                <input placeholder="Last Name" />
+                <input placeholder="Last Name" v-model="lastName" />
             </div>
 
             <div class="submitionSection">
                 <span>Day of Birth</span> <br>
-                <input placeholder="Day of Birth" type="date" />
+                <input placeholder="Day of Birth" type="date" v-model="dayOfBirth" />
             </div>
 
             <div class="submitionSection">
                 <span>Weight</span><br>
-                <input placeholder="Weight" type="number" /><br>
+                <input placeholder="Weight" type="number" v-model="weigth" /><br>
                 <span>Height</span><br>
-                <input placeholder="Height" type="number" />
+                <input placeholder="Height" type="number" v-model="heigth" />
             </div>
 
             <div class="submitionSection">
                 <span>Gender</span><br>
-                <select>
+                <select v-model="gender">
                     <option value="">Choose an option</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
