@@ -1,5 +1,22 @@
 <script setup>
+const APIURL = "https://localhost:7137/Person"
 
+const submit = async() =>
+{
+    await fetch(APIURL, {
+        method : "POST",
+        body : {
+            
+        }
+    })
+}
+
+const firstName = ref("")
+const lastName = ref("")
+const dayOfBirth = ref("")
+const weigth = ref(0)
+const heigth = ref(0)
+const gender = ref()
 </script>
 
 <template>
@@ -33,7 +50,7 @@
                 </select>
             </div>
 
-            <button id="submitButton">
+            <button @click="submit" id="submitButton">
                 Submit
             </button>
         </div>

@@ -1,20 +1,22 @@
 <script setup>
-import {ref} from 'vue'
+import {ref, onMounted} from 'vue'
 import Person from './Person.vue'
 
+
+const APIURL = "https://localhost:7137/Person"
 const people = ref([
-  {firstName: 'Jon', lastName: 'Nielsen', age: 18, gender: 'Male',  height: 200, weight: 110},
-  {firstName: 'Jon', lastName: 'Nielsen', age: 18, gender: 'Male',  height: 200, weight: 110},
-  {firstName: 'Jon', lastName: 'Nielsen', age: 18, gender: 'Male',  height: 200, weight: 110},
-  {firstName: 'Jon', lastName: 'Nielsen', age: 18, gender: 'Male',  height: 200, weight: 110},
-  {firstName: 'Jon', lastName: 'Nielsen', age: 18, gender: 'Male',  height: 200, weight: 110},
-  {firstName: 'Jon', lastName: 'Nielsen', age: 18, gender: 'Male',  height: 200, weight: 110},
-  {firstName: 'Jon', lastName: 'Nielsen', age: 18, gender: 'Male',  height: 200, weight: 110},
-  {firstName: 'Jon', lastName: 'Nielsen', age: 18, gender: 'Male',  height: 200, weight: 110},
-  {firstName: 'Jon', lastName: 'Nielsen', age: 18, gender: 'Male',  height: 200, weight: 110},
-  {firstName: 'Jon', lastName: 'Nielsen', age: 18, gender: 'Male',  height: 200, weight: 110},
-  {firstName: 'Jon', lastName: 'Nielsen', age: 18, gender: 'Male',  height: 200, weight: 110},
 ])
+
+onMounted(async() => {
+  const response = await fetch(APIURL, {
+    method : "GET"
+  })
+  const responseParsed = await response.json()
+
+  Array.from(responseParsed).forEach((person) =>
+    people.value.push(person)
+  )
+})
 
 </script>
 

@@ -7,6 +7,6 @@ CREATE TABLE person (
 	age INTEGER NOT NULL,
 	gender INTEGER NOT NULL,
 	height INTEGER NOT NULL,
-	weight INTEGER NOT NULL,
+	personWeight INTEGER NOT NULL,
 	dayOfBirth TEXT NOT NULL
 )

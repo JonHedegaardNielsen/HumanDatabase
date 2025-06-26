@@ -41,6 +41,102 @@
             }
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "Person"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Person"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Person"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Person"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Person"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Person/single{personId}": {
+      "get": {
+        "tags": [
+          "Person"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "personId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Person"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Person"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Person"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/WeatherForecast": {
@@ -96,6 +192,10 @@
       "Person": {
         "type": "object",
         "properties": {
+          "personId": {
+            "type": "integer",
+            "format": "int32"
+          },
           "firstName": {
             "type": "string",
             "nullable": true
@@ -104,20 +204,24 @@
             "type": "string",
             "nullable": true
           },
-          "dayOfBirth": {
-            "type": "string",
-            "format": "date"
+          "age": {
+            "type": "integer",
+            "format": "int32"
           },
           "gender": {
             "$ref": "#/components/schemas/Genders"
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
           },
           "weight": {
             "type": "integer",
             "format": "int32"
           },
-          "height": {
-            "type": "integer",
-            "format": "int32"
+          "dayOfBirth": {
+            "type": "string",
+            "format": "date"
           }
         },
         "additionalProperties": false
