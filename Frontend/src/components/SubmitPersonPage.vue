@@ -8,9 +8,9 @@ const submit = async() =>
             "firstName" : firstName.value,
             "lastName" : lastName.value,
             "dayOfBirth" : dayOfBirth.value,
-            "weigth" : weigth.value,
-            "heigth" : heigth.value,
-            "gender" : gender.value
+            "weight" : parseInt(weigth.value),
+            "height" : parseInt(heigth.value),
+            "gender" : parseInt(gender.value)
     }
 
     console.log(person)
@@ -59,8 +59,8 @@ const gender = defineModel('gender')
                 <span>Gender</span><br>
                 <select v-model="gender">
                     <option value="">Choose an option</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
                 </select>
             </div>
 

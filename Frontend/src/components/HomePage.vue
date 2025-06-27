@@ -9,12 +9,32 @@ const people = ref([
 
 onMounted(async() => {
   const response = await fetch(APIURL, {
-    method : "GET"
+    method : "GET",
+    headers: {
+            'Accept': 'application/json',
+            "Content-Type": "application/json"
+        },
   })
   const responseParsed = await response.json()
+  const dateToday = new Date()
 
-  Array.from(responseParsed).forEach((person) =>
+  Array.from(responseParsed).forEach((person) =>{
+    person.dayOfBirth = new Date(person.dayOfBirth)
+
+    let yearDifference = dateToday.getFullYear() -  person.dayOfBirth.getFullYear();
+
+    if (
+      dateToday.getMonth() < person.dayOfBirth.getMonth() || 
+      (dateToday.getMonth() === person.dayOfBirth.getMonth() && dateToday.getDate() < person.dayOfBirth.getDate())
+    ) 
+    {
+      yearDifference--;
+    }
+
+    person.age = yearDifference
     people.value.push(person)
+  }
+    
   )
 })
 
