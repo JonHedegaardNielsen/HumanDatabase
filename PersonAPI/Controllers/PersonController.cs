@@ -57,6 +57,12 @@ namespace PersonAPI.Controllers
 				return BadRequest();
 			}
 		}
+
+		[HttpGet("SearchPerson")]
+		public IEnumerable<Person> GetPersonSearch([FromBody] PersonSearchParameters personSearchParameters)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 

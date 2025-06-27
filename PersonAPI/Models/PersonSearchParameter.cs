@@ -2,9 +2,7 @@
 
 namespace PersonAPI.Models
 {
-	// not finished yet
-	public record PersonSearchParameters(int? PersonId,
-		string? FirstName,
+	public record PersonSearchParameters(string? FirstName,
 		string? LastName,
 		int? Age,
 		Genders? Gender,
@@ -12,5 +10,5 @@ namespace PersonAPI.Models
 		int? Weight,
 		DateOnly? DayOfBirth
 
-		);
+	);
 }
