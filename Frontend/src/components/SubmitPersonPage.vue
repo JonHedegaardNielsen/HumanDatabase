@@ -2,6 +2,22 @@
 import {ref, defineModel} from 'vue'
 const APIURL = "https://localhost:7137/Person"
 
+const firstName = defineModel('firstName')
+const lastName = defineModel('lastName')
+const dayOfBirth = defineModel('dayOfBirth')
+const weigth = defineModel('weigth')
+const heigth = defineModel('heigth')
+const gender = defineModel('gender')
+let photo = null
+
+
+
+const handleChangePhoto = (event) => {
+    const file = event.target.files[0]
+    if (file){
+        photo = file
+    }
+}
 
 function calcAge(dayOfBirth){
     const dateToday = new Date()
@@ -29,9 +45,9 @@ const submit = async() =>
         "weight" : parseInt(weigth.value),
         "height" : parseInt(heigth.value),
         "gender" : parseInt(gender.value),
-        "age" : calcAge(new Date(dayOfBirth.value))
+        "age" : calcAge(new Date(dayOfBirth.value)),
+        "photo" : photo
     }
-
 
     console.log(person)
 
@@ -45,12 +61,7 @@ const submit = async() =>
     })
 }
 
-const firstName = defineModel('firstName')
-const lastName = defineModel('lastName')
-const dayOfBirth = defineModel('dayOfBirth')
-const weigth = defineModel('weigth')
-const heigth = defineModel('heigth')
-const gender = defineModel('gender')
+
 </script>
 
 <template>
@@ -81,7 +92,10 @@ const gender = defineModel('gender')
                     <option value="">Choose an option</option>
                     <option value="0">Male</option>
                     <option value="1">Female</option>
-                </select>
+                </select> <br>
+        
+                <input placeholder="Image" type="file"/>
+
             </div>
 
             <button @click="submit" id="submitButton">
