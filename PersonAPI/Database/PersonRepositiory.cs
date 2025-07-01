@@ -1,15 +1,17 @@
 ﻿using PersonAPI.Enums;
 using PersonAPI.Models;
+using System.Data.Entity.Infrastructure;
 using System.Data.SQLite;
 using System.Diagnostics.CodeAnalysis;
 
 namespace PersonAPI.Database;
 
-public class PersonRepositiory
+public class PersonRepositiory : IRepository<Person>
 {
 	private readonly CommonDBModules _dbModules = new();
 	private const string TABLENAME = "person";
 	private const string IDNAME = "personId";
+
 	private Person Read(SQLiteDataReader reader)
 	{
 		return new Person(
@@ -56,6 +58,26 @@ public class PersonRepositiory
 		command.ExecuteNonQuery();
 	}
 
+	public void Update(Person person)
+	{
+		string sqlquery = $@"UPDATE {TABLENAME} 
+					SET firstName = @firstName, lastName = @lastName, age = @age, gender = @gender, 
+					height = @height, weight = @weight, dayOfBirth = @dayOfBirth";
+
+		using SQLiteConnection connection = _dbModules.GetConnection();
+		using SQLiteCommand command = new(sqlquery, connection);
+
+		command.Parameters.AddWithValue("@firstName", person.FirstName);
+		command.Parameters.AddWithValue("@lastName", person.LastName);
+		command.Parameters.AddWithValue("@age", person.Age);
+		command.Parameters.AddWithValue("@gender", (int)person.Gender);
+		command.Parameters.AddWithValue("@height", person.Height);
+		command.Parameters.AddWithValue("@weight", person.Weight);
+		command.Parameters.AddWithValue("@dayOfBirth", person.DayOfBirth);
+
+		command.ExecuteNonQuery();
+	}
+
 	public void Create(Person person)
 	{
 		string sqlquery = $@"INSERT INTO {TABLENAME} 
@@ -73,31 +95,49 @@ public class PersonRepositiory
 		command.ExecuteNonQuery();
 	}
 
-	private string AddWhereEquals(string name, object value, SQLiteCommand command)
+	private void AddWhereEquals(string name, object value, SQLiteCommand command, ref string sqlQuery)
 	{
 		command.Parameters.AddWithValue($"@{name}", value);
-		return $"{name} = @{name}";
+		sqlQuery += $"{name} = @{name}";
+		sqlQuery += " AND ";
 	}
+
+	private void AddWhereEqualsIfNotNull(string name, object? value, SQLiteCommand command, ref string sqlQuery)
+	{
+		if (value is not null)
+		{
+			AddWhereEquals(name, value, command, ref sqlQuery);
+		}
+	}
+
 
 	public IEnumerable<Person> Search(PersonSearchParameters parameters)
 	{
 		using SQLiteConnection connection = _dbModules.GetConnection();
 		using SQLiteCommand command = new(connection);
-		string sqlquery = $@"SELECT * FROM {TABLENAME} WHERE";
+		string sqlquery = $@"SELECT * FROM {TABLENAME} WHERE ";
 
-		if (parameters.FirstName is not null)
-			sqlquery += AddWhereEquals("firstName", parameters.FirstName, command);
+		AddWhereEqualsIfNotNull("firstName", parameters.FirstName, command, ref sqlquery);
+		AddWhereEqualsIfNotNull("lastName", parameters.LastName, command, ref sqlquery);
+		AddWhereEqualsIfNotNull("age", parameters.Age, command, ref sqlquery);
+		AddWhereEqualsIfNotNull("dayOfBirth", parameters.DayOfBirth, command, ref sqlquery);
+		AddWhereEqualsIfNotNull("gender", parameters.Gender, command, ref sqlquery);
+		AddWhereEqualsIfNotNull("weight", parameters.Weight, command, ref sqlquery);
+		AddWhereEqualsIfNotNull("height", parameters.Height, command, ref sqlquery);
 
-		if (parameters.LastName is not null)
-			sqlquery += AddWhereEquals("lastName", parameters.LastName, command);
+		const int ANDPOSITION = 4;
+		const int WHEREPOSITION = 6;
 
-		if (parameters.Age is not null)
-			sqlquery += AddWhereEquals("age", parameters.Age, command);
+		if (sqlquery[^ANDPOSITION..] == "AND ")
+		{
+			sqlquery = sqlquery.Remove(sqlquery.Length - ANDPOSITION);
+		}
 
-		if (parameters.DayOfBirth is not null)
-			sqlquery += AddWhereEquals("dayOfBirth", parameters.DayOfBirth, command);
+		if (sqlquery[^6..] == "WHERE ")
+		{
+			sqlquery = sqlquery.Remove(sqlquery.Length - WHEREPOSITION);
+		}
 
-		
 		command.CommandText = sqlquery;
 
 		return _dbModules.ReadAll(command.ExecuteReader(), Read);

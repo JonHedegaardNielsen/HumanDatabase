@@ -3,10 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\jon23\\OneDrive\\Skrivebord\\Programmering\\ClientsideProgrammering\\Vue\\HumanDatabase\\API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{17CE87EC-D243-4967-B084-02D983322A80}|..\\PersonAPI\\PersonAPI.csproj|c:\\users\\jon23\\onedrive\\skrivebord\\programmering\\clientsideprogrammering\\vue\\humandatabase\\personapi\\controllers\\personcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{17CE87EC-D243-4967-B084-02D983322A80}|..\\PersonAPI\\PersonAPI.csproj|c:\\users\\jon23\\onedrive\\skrivebord\\programmering\\clientsideprogrammering\\vue\\humandatabase\\personapi\\database\\personrepositiory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{17CE87EC-D243-4967-B084-02D983322A80}|..\\PersonAPI\\PersonAPI.csproj|c:\\users\\jon23\\onedrive\\skrivebord\\programmering\\clientsideprogrammering\\vue\\humandatabase\\personapi\\database\\personrepositiory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{17CE87EC-D243-4967-B084-02D983322A80}|..\\PersonAPI\\PersonAPI.csproj|c:\\users\\jon23\\onedrive\\skrivebord\\programmering\\clientsideprogrammering\\vue\\humandatabase\\personapi\\controllers\\personcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{17CE87EC-D243-4967-B084-02D983322A80}|..\\PersonAPI\\PersonAPI.csproj|c:\\users\\jon23\\onedrive\\skrivebord\\programmering\\clientsideprogrammering\\vue\\humandatabase\\personapi\\database\\commondbmodules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -15,16 +15,13 @@
       "AbsoluteMoniker": "D:0:0:{17CE87EC-D243-4967-B084-02D983322A80}|..\\PersonAPI\\PersonAPI.csproj|c:\\users\\jon23\\onedrive\\skrivebord\\programmering\\clientsideprogrammering\\vue\\humandatabase\\personapi\\models\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{17CE87EC-D243-4967-B084-02D983322A80}|..\\PersonAPI\\PersonAPI.csproj|c:\\users\\jon23\\onedrive\\skrivebord\\programmering\\clientsideprogrammering\\vue\\humandatabase\\personapi\\personapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17CE87EC-D243-4967-B084-02D983322A80}|..\\PersonAPI\\PersonAPI.csproj|c:\\users\\jon23\\onedrive\\skrivebord\\programmering\\clientsideprogrammering\\vue\\humandatabase\\personapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{17CE87EC-D243-4967-B084-02D983322A80}|..\\PersonAPI\\PersonAPI.csproj|c:\\users\\jon23\\onedrive\\skrivebord\\programmering\\clientsideprogrammering\\vue\\humandatabase\\personapi\\models\\personsearchparameter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{17CE87EC-D243-4967-B084-02D983322A80}|..\\PersonAPI\\PersonAPI.csproj|c:\\users\\jon23\\onedrive\\skrivebord\\programmering\\clientsideprogrammering\\vue\\humandatabase\\personapi\\enums\\genders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{17CE87EC-D243-4967-B084-02D983322A80}|..\\PersonAPI\\PersonAPI.csproj|c:\\users\\jon23\\onedrive\\skrivebord\\programmering\\clientsideprogrammering\\vue\\humandatabase\\personapi\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17CE87EC-D243-4967-B084-02D983322A80}|..\\PersonAPI\\PersonAPI.csproj|c:\\users\\jon23\\onedrive\\skrivebord\\programmering\\clientsideprogrammering\\vue\\humandatabase\\personapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +31,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 251,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,26 +71,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PersonAPI.http",
-              "DocumentMoniker": "C:\\Users\\jon23\\OneDrive\\Skrivebord\\Programmering\\ClientsideProgrammering\\Vue\\HumanDatabase\\PersonAPI\\PersonAPI.http",
-              "RelativeDocumentMoniker": "..\\PersonAPI\\PersonAPI.http",
-              "ToolTip": "C:\\Users\\jon23\\OneDrive\\Skrivebord\\Programmering\\ClientsideProgrammering\\Vue\\HumanDatabase\\PersonAPI\\PersonAPI.http",
-              "RelativeToolTip": "..\\PersonAPI\\PersonAPI.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-06-26T08:57:31.138Z",
+              "DocumentIndex": 5,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "C:\\Users\\jon23\\OneDrive\\Skrivebord\\Programmering\\ClientsideProgrammering\\Vue\\HumanDatabase\\PersonAPI\\IRepository.cs",
+              "RelativeDocumentMoniker": "..\\PersonAPI\\IRepository.cs",
+              "ToolTip": "C:\\Users\\jon23\\OneDrive\\Skrivebord\\Programmering\\ClientsideProgrammering\\Vue\\HumanDatabase\\PersonAPI\\IRepository.cs",
+              "RelativeToolTip": "..\\PersonAPI\\IRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-30T06:31:34.797Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "PersonSearchParameter.cs",
               "DocumentMoniker": "C:\\Users\\jon23\\OneDrive\\Skrivebord\\Programmering\\ClientsideProgrammering\\Vue\\HumanDatabase\\PersonAPI\\Models\\PersonSearchParameter.cs",
               "RelativeDocumentMoniker": "..\\PersonAPI\\Models\\PersonSearchParameter.cs",
               "ToolTip": "C:\\Users\\jon23\\OneDrive\\Skrivebord\\Programmering\\ClientsideProgrammering\\Vue\\HumanDatabase\\PersonAPI\\Models\\PersonSearchParameter.cs",
               "RelativeToolTip": "..\\PersonAPI\\Models\\PersonSearchParameter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-26T07:01:21.709Z",
               "EditorCaption": ""
@@ -106,45 +103,33 @@
               "RelativeDocumentMoniker": "..\\PersonAPI\\Models\\Person.cs",
               "ToolTip": "C:\\Users\\jon23\\OneDrive\\Skrivebord\\Programmering\\ClientsideProgrammering\\Vue\\HumanDatabase\\PersonAPI\\Models\\Person.cs",
               "RelativeToolTip": "..\\PersonAPI\\Models\\Person.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-23T12:42:02.236Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Genders.cs",
-              "DocumentMoniker": "C:\\Users\\jon23\\OneDrive\\Skrivebord\\Programmering\\ClientsideProgrammering\\Vue\\HumanDatabase\\PersonAPI\\Enums\\Genders.cs",
-              "RelativeDocumentMoniker": "..\\PersonAPI\\Enums\\Genders.cs",
-              "ToolTip": "C:\\Users\\jon23\\OneDrive\\Skrivebord\\Programmering\\ClientsideProgrammering\\Vue\\HumanDatabase\\PersonAPI\\Enums\\Genders.cs",
-              "RelativeToolTip": "..\\PersonAPI\\Enums\\Genders.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-23T12:41:56.777Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "PersonRepositiory.cs",
               "DocumentMoniker": "C:\\Users\\jon23\\OneDrive\\Skrivebord\\Programmering\\ClientsideProgrammering\\Vue\\HumanDatabase\\PersonAPI\\Database\\PersonRepositiory.cs",
               "RelativeDocumentMoniker": "..\\PersonAPI\\Database\\PersonRepositiory.cs",
-              "ToolTip": "C:\\Users\\jon23\\OneDrive\\Skrivebord\\Programmering\\ClientsideProgrammering\\Vue\\HumanDatabase\\PersonAPI\\Database\\PersonRepositiory.cs",
-              "RelativeToolTip": "..\\PersonAPI\\Database\\PersonRepositiory.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAAAC4AAAABAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\jon23\\OneDrive\\Skrivebord\\Programmering\\ClientsideProgrammering\\Vue\\HumanDatabase\\PersonAPI\\Database\\PersonRepositiory.cs*",
+              "RelativeToolTip": "..\\PersonAPI\\Database\\PersonRepositiory.cs*",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAUwIkAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-23T12:41:49.367Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "PersonController.cs",
               "DocumentMoniker": "C:\\Users\\jon23\\OneDrive\\Skrivebord\\Programmering\\ClientsideProgrammering\\Vue\\HumanDatabase\\PersonAPI\\Controllers\\PersonController.cs",
               "RelativeDocumentMoniker": "..\\PersonAPI\\Controllers\\PersonController.cs",
               "ToolTip": "C:\\Users\\jon23\\OneDrive\\Skrivebord\\Programmering\\ClientsideProgrammering\\Vue\\HumanDatabase\\PersonAPI\\Controllers\\PersonController.cs",
               "RelativeToolTip": "..\\PersonAPI\\Controllers\\PersonController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAADEAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-23T12:41:33.981Z",
               "EditorCaption": ""
@@ -157,14 +142,14 @@
               "RelativeDocumentMoniker": "..\\PersonAPI\\Database\\CommonDBModules.cs",
               "ToolTip": "C:\\Users\\jon23\\OneDrive\\Skrivebord\\Programmering\\ClientsideProgrammering\\Vue\\HumanDatabase\\PersonAPI\\Database\\CommonDBModules.cs",
               "RelativeToolTip": "..\\PersonAPI\\Database\\CommonDBModules.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACYAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-23T12:40:40.196Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\jon23\\OneDrive\\Skrivebord\\Programmering\\ClientsideProgrammering\\Vue\\HumanDatabase\\PersonAPI\\Program.cs",
               "RelativeDocumentMoniker": "..\\PersonAPI\\Program.cs",
@@ -172,8 +157,7 @@
               "RelativeToolTip": "..\\PersonAPI\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-23T12:39:55.356Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-23T12:39:55.356Z"
             }
           ]
         }

@@ -2,16 +2,36 @@
 import {ref, defineModel} from 'vue'
 const APIURL = "https://localhost:7137/Person"
 
+
+function calcAge(dayOfBirth){
+    const dateToday = new Date()
+
+    let yearDifference = dateToday.getFullYear() - dayOfBirth.getFullYear();
+
+    if (
+      dateToday.getMonth() < dayOfBirth.getMonth() || 
+      (dateToday.getMonth() === dayOfBirth.getMonth() && dateToday.getDate() < dayOfBirth.getDate())
+    ) 
+    {
+      yearDifference--;
+    }
+
+    return yearDifference
+}
+
+
 const submit = async() =>
 {
     const person = {
-            "firstName" : firstName.value,
-            "lastName" : lastName.value,
-            "dayOfBirth" : dayOfBirth.value,
-            "weight" : parseInt(weigth.value),
-            "height" : parseInt(heigth.value),
-            "gender" : parseInt(gender.value)
+        "firstName" : firstName.value,
+        "lastName" : lastName.value,
+        "dayOfBirth" : dayOfBirth.value,
+        "weight" : parseInt(weigth.value),
+        "height" : parseInt(heigth.value),
+        "gender" : parseInt(gender.value),
+        "age" : calcAge(new Date(dayOfBirth.value))
     }
+
 
     console.log(person)
 

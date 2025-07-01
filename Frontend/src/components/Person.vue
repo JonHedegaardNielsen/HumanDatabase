@@ -9,9 +9,9 @@
         <img src="../assets/NoImage.png" alt="">
         <span>{{firstName}} {{ lastName }} <br></span>
         <span>age: {{age}} <br></span>
-        <span>{{ gender }} <br></span>
-        <span>{{ height }} <br></span>
-        <span>{{ weight }} <br></span>
+        <span>gender: {{ gender }} <br></span>
+        <span>height: {{ height }} <br></span>
+        <span>weight: {{ weight }} <br></span>
     </div>
 </template>
 
