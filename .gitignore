@@ -7,3 +7,5 @@
 /PersonAPI/Database/database.db
 /PersonAPI/Database/database.db
 /.vs
+/API/.vs
+/Frontend/.vscode

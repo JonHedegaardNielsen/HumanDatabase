@@ -107,7 +107,8 @@ onMounted(async() => {
             :age="person.age"
             :gender="person.gender"
             :height="person.height"
-            :weight="person.weight">
+            :weight="person.weight"
+            :dayOfBirth="new Date(person.dayOfBirth)">
         </Person>
       </div>
     </div>

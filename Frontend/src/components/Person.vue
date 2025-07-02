@@ -1,6 +1,6 @@
 <script setup>
     import {ref} from 'vue';
-    defineProps(['firstName', 'lastName', 'age', 'gender', 'height', 'weight'])
+    defineProps(['firstName', 'lastName', 'age', 'gender', 'height', 'weight', 'dayOfBirth'])
 
 </script>
 
@@ -12,6 +12,7 @@
         <span>gender: {{ gender }} <br></span>
         <span>height: {{ height }} <br></span>
         <span>weight: {{ weight }} <br></span>
+        <span>dayOfBirth: {{ dayOfBirth.getDate() }}-{{ dayOfBirth.getMonth()  }}-{{ dayOfBirth.getFullYear() }} <br></span>
     </div>
 </template>
 

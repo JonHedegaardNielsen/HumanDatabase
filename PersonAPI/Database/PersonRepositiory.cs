@@ -3,6 +3,7 @@ using PersonAPI.Models;
 using System.Data.Entity.Infrastructure;
 using System.Data.SQLite;
 using System.Diagnostics.CodeAnalysis;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PersonAPI.Database;
 
@@ -14,11 +15,25 @@ public class PersonRepositiory : IRepository<Person>
 
 	private Person Read(SQLiteDataReader reader)
 	{
+		DateTime dateOfBirthTime = DateTime.Parse(reader.GetString(7));
+
+		int yearDifference = DateTime.Now.Year - dateOfBirthTime.Year;
+
+		DateTime dateToday = DateTime.Now;
+
+		if (dateToday < dateOfBirthTime.AddYears(yearDifference) ||
+			dateToday.Month < dateOfBirthTime.Month ||
+			(dateToday.Month == dateOfBirthTime.Month && dateToday.Day < dateOfBirthTime.Day)
+		)
+		{
+			yearDifference--;
+		}
+
 		return new Person(
 			reader.GetInt32(0),
 			reader.GetString(1),
 			reader.GetString(2),
-			reader.GetInt32(3),
+			yearDifference,
 			(Genders)reader.GetInt32(4),
 			reader.GetInt32(5),
 			reader.GetInt32(6),

@@ -45,7 +45,7 @@ const submit = async() =>
         "weight" : parseInt(weigth.value),
         "height" : parseInt(heigth.value),
         "gender" : parseInt(gender.value),
-        "age" : calcAge(new Date(dayOfBirth.value)),
+        "age" : dayOfBirth.age,
         "photo" : photo
     }
 
@@ -89,7 +89,6 @@ const submit = async() =>
             <div class="submitionSection">
                 <span>Gender</span><br>
                 <select v-model="gender">
-                    <option value="">Choose an option</option>
                     <option value="0">Male</option>
                     <option value="1">Female</option>
                 </select> <br>
