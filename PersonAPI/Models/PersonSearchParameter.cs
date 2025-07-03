@@ -9,6 +9,5 @@ namespace PersonAPI.Models
 		int? Height,
 		int? Weight,
 		DateOnly? DayOfBirth
-
 	);
 }

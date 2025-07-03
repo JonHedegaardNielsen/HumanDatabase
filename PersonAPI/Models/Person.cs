@@ -9,6 +9,7 @@ namespace PersonAPI.Models
 		Genders Gender,
 		int Height,
 		int Weight,
-		DateOnly DayOfBirth
+		DateOnly DayOfBirth,
+		IFormFile? ProfilePicture = null
 		);
 }

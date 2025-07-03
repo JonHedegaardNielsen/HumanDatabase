@@ -8,5 +8,6 @@ CREATE TABLE person (
 	gender INTEGER NOT NULL,
 	height INTEGER NOT NULL,
 	personWeight INTEGER NOT NULL,
-	dayOfBirth TEXT NOT NULL
+	dayOfBirth TEXT NOT NULL,
+	photo BLOB,
 )
