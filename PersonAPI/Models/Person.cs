@@ -10,6 +10,6 @@ namespace PersonAPI.Models
 		int Height,
 		int Weight,
 		DateOnly DayOfBirth,
-		IFormFile? ProfilePicture = null
+		string? Base64Image = null
 		);
 }

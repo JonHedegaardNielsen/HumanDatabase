@@ -9,5 +9,5 @@ CREATE TABLE person (
 	height INTEGER NOT NULL,
 	personWeight INTEGER NOT NULL,
 	dayOfBirth TEXT NOT NULL,
-	photo BLOB,
+	photoBase64 TEXT
 )

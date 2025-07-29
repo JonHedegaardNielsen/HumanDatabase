@@ -319,6 +319,10 @@
           "dayOfBirth": {
             "type": "string",
             "format": "date"
+          },
+          "base64Image": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

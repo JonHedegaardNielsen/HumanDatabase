@@ -8,14 +8,23 @@ const dayOfBirth = defineModel('dayOfBirth')
 const weigth = defineModel('weigth')
 const heigth = defineModel('heigth')
 const gender = defineModel('gender')
+
 let photo = null
 
-
+function convertFileToBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+    });
+}
 
 const handleChangePhoto = (event) => {
     const file = event.target.files[0]
     if (file){
         photo = file
+        
     }
 }
 
@@ -38,6 +47,7 @@ function calcAge(dayOfBirth){
 
 const submit = async() =>
 {
+    const photobase64 = await convertFileToBase64(photo)
     const person = {
         "firstName" : firstName.value,
         "lastName" : lastName.value,
@@ -46,7 +56,7 @@ const submit = async() =>
         "height" : parseInt(heigth.value),
         "gender" : parseInt(gender.value),
         "age" : dayOfBirth.age,
-        "photo" : photo
+        "base64Image" : photobase64
     }
 
     console.log(person)
@@ -60,8 +70,6 @@ const submit = async() =>
         body : JSON.stringify(person)
     })
 }
-
-
 </script>
 
 <template>
@@ -93,7 +101,7 @@ const submit = async() =>
                     <option value="1">Female</option>
                 </select> <br>
         
-                <input placeholder="Image" type="file"/>
+                <input placeholder="Image" type="file" v-on:change="handleChangePhoto"/>
 
             </div>
 

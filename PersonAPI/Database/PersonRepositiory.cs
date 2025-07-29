@@ -1,4 +1,5 @@
-﻿using PersonAPI.Enums;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using PersonAPI.Enums;
 using PersonAPI.Models;
 using System.Data.Entity.Infrastructure;
 using System.Data.SQLite;
@@ -12,7 +13,7 @@ public class PersonRepositiory : IRepository<Person>
 	private readonly CommonDBModules _dbModules = new();
 	private const string TABLENAME = "person";
 	private const string IDNAME = "personId";
-
+	private const string COLLUMNSTOSELECT = "(firstName, lastName, age, gender, height, personWeight, dayOfBirth, photo)";
 	private Person Read(SQLiteDataReader reader)
 	{
 		DateTime dateOfBirthTime = DateTime.Parse(reader.GetString(7));
@@ -37,7 +38,8 @@ public class PersonRepositiory : IRepository<Person>
 			(Genders)reader.GetInt32(4),
 			reader.GetInt32(5),
 			reader.GetInt32(6),
-			DateOnly.FromDateTime(DateTime.Parse(reader.GetString(7)))
+			DateOnly.FromDateTime(DateTime.Parse(reader.GetString(7))),
+			reader.GetString(8)
 		);
 	}
 
@@ -94,10 +96,11 @@ public class PersonRepositiory : IRepository<Person>
 	}
 
 	public void Create(Person person)
-	{
+	{ 
+
 		string sqlquery = $@"INSERT INTO {TABLENAME} 
-					(firstName, lastName, age, gender, height, personWeight, dayOfBirth)
-					VALUES (@firstName, @lastName, @age, @gender, @height, @weight, @dayOfBirth)";
+					(firstName, lastName, age, gender, height, personWeight, dayOfBirth, photo)
+					VALUES (@firstName, @lastName, @age, @gender, @height, @weight, @dayOfBirth, @photoBase64)";
 		using SQLiteConnection connection = _dbModules.GetConnection();
 		using SQLiteCommand command = new(sqlquery, connection);
 		command.Parameters.AddWithValue("@firstName", person.FirstName);
@@ -107,6 +110,7 @@ public class PersonRepositiory : IRepository<Person>
 		command.Parameters.AddWithValue("@height", person.Height);
 		command.Parameters.AddWithValue("@weight", person.Weight);
 		command.Parameters.AddWithValue("@dayOfBirth", person.DayOfBirth);
+		command.Parameters.AddWithValue("@photoBase64", person.Base64Image);
 		command.ExecuteNonQuery();
 	}
 

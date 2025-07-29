@@ -108,7 +108,8 @@ onMounted(async() => {
             :gender="person.gender"
             :height="person.height"
             :weight="person.weight"
-            :dayOfBirth="new Date(person.dayOfBirth)">
+            :dayOfBirth="new Date(person.dayOfBirth)"
+            :photoBase64="person.base64Image">
         </Person>
       </div>
     </div>

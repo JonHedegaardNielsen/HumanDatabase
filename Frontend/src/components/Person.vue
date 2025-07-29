@@ -1,12 +1,16 @@
 <script setup>
-    import {ref} from 'vue';
-    defineProps(['firstName', 'lastName', 'age', 'gender', 'height', 'weight', 'dayOfBirth'])
-
+    import {computed, ref} from 'vue';
+    const {firstName, lastName, age, gender, height, weight, dayOfBirth, photoBase64} = defineProps(['firstName', 'lastName', 'age', 'gender', 'height', 'weight', 'dayOfBirth', 'photoBase64'])
+    const base64ImageURL = computed(() => {
+        console.log(`data:image/png;base64,${photoBase64}`)
+        return `data:image/png;base64,${photoBase64}`
+    }) 
+    
 </script>
 
 <template>
     <div id="personBox">
-        <img src="../assets/NoImage.png" alt="">
+        <img  :src="photoBase64" alt="">
         <span>{{firstName}} {{ lastName }} <br></span>
         <span>age: {{age}} <br></span>
         <span>gender: {{ gender }} <br></span>

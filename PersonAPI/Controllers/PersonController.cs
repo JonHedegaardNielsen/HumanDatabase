@@ -46,7 +46,7 @@ public class PersonController : ControllerBase
 	}
 
 	[HttpPost]
-	public ActionResult Post([FromBody]Person person, [FromQuery] IFormFile image)
+	public ActionResult Post([FromBody]Person person)
 	{
 		try
 		{
